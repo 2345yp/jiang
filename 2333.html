@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搞笑网页示例</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            background-color: red; /* 背景颜色 */
+            background-image: url('https://example.com/帅哥.jpg'); /* 替换为帅哥图片的实际URL */
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://www.example.com/wave.png') repeat-x; /* 替换为海浪图像的实际URL */
+            animation: wave 5s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 100%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        nav button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        nav button:hover {
+            transform: scale(1.1);
+            background-color: darkgray;
+        }
+
+        .content {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .loading {
+            display: none;
+            font-size: 24px;
+            color: yellow;
+            margin-top: 20px;
+        }
+
+        .image {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .image img {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button onclick="showMessage(1)">按钮 1</button>
+        <button onclick="showMessage(2)">按钮 2</button>
+        <button onclick="showMessage(3)">按钮 3</button>
+        <button onclick="showLoading()">按钮 4</button>
+        <button onclick="showImage()">按钮 5</button>
+    </nav>
+    <div class="content" id="message"></div>
+    <div class="loading" id="loading">加载中... 请稍等</div>
+    <div class="image" id="image">
+        <img src="C:\Users\图图\Pictures\微信图片_20240914123713.jpg">
+    </div>
+    <div class="wave"></div>
+
+    <script>
+        function showMessage(buttonId) {
+            const messageElement = document.getElementById('message');
+            const loadingElement = document.getElementById('loading');
+            const imageElement = document.getElementById('image');
+            
+            // Hide all content sections
+            messageElement.style.display = 'none';
+            loadingElement.style.display = 'none';
+            imageElement.style.display = 'none';
+
+            if (buttonId === 1) {
+                messageElement.textContent = '哈哈你是傻逼';
+                messageElement.style.display = 'block';
+            } else if (buttonId === 2) {
+                messageElement.textContent = '恭喜你中奖一吻';
+                messageElement.style.display = 'block';
+            } else if (buttonId === 3) {
+                const amount = Math.floor(Math.random() * 20) + 1;
+                messageElement.textContent = `请发一个红包给张德友，金额是 ${amount} 元`;
+                messageElement.style.display = 'block';
+            }
+        }
+
+        function showLoading() {
+            const messageElement = document.getElementById('message');
+            const loadingElement = document.getElementById('loading');
+            const imageElement = document.getElementById('image');
+            
+            // Hide all content sections
+            messageElement.style.display = 'none';
+            loadingElement.style.display = 'block';
+            imageElement.style.display = 'none';
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                loadingElement.textContent = '加载失败，请重试';
+            }, 3000);
+        }
+
+        function showImage() {
+            const messageElement = document.getElementById('message');
+            const loadingElement = document.getElementById('loading');
+            const imageElement = document.getElementById('image');
+            
+            // Hide all content sections
+            messageElement.style.display = 'none';
+            loadingElement.style.display = 'none';
+            imageElement.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
